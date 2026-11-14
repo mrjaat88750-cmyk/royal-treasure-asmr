@@ -1,0 +1,19 @@
+BUILD STATUS — Royal Treasure ASMR v3.0
+Updated source project: 14 Nov 2026
+
+Implemented in this update:
+- Eight draggable jewellery/accessory pieces per round (crown, hairpin, left/right earrings, necklace, waist chain, bangle, anklet).
+- Three new transparent PNG accessory assets generated for this project.
+- 3-minute countdown timer and five-heart life system.
+- Wrong drops consume one heart; zero hearts or timer expiry ends the round.
+- Hint, reset, reference preview, sound toggle and pause controls.
+- Ten-round progression; snap tolerance tightens as the round number increases.
+- Unlocked round number is persisted with Android SharedPreferences.
+- Completion dialog advances to the next round; retry resets the current round.
+- Toolbar supports horizontal scrolling on narrow screens.
+
+Verification:
+- ZIP archive integrity and PNG assets can be checked locally.
+- Android XML and Gradle project files are included.
+- Gradle/Kotlin compilation, APK generation, emulator launch and physical-device gameplay have NOT been run in this environment.
+- The ten rounds currently reuse the included princess artwork and accessory layout with progressively tighter snap tolerance. Distinct princess artwork, a true level-select map, ad integration, billing and production signing are not included.

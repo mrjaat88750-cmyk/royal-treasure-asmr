@@ -1,26 +1,45 @@
-TERMUX MOBILE BUILD
+TERMUX + GITHUB ACTIONS से TEST APK बनाने की हिंदी गाइड
 
-1) Download and extract this ZIP to Downloads.
-2) In Termux run:
+इस ZIP में Android Studio/Gradle का पूरा source project है। इस वातावरण में APK compile नहीं हुआ है।
+APK बनाने के लिए GitHub Actions cloud build का उपयोग करें।
+
+1) ZIP को फोन के Downloads में extract करें।
+2) Termux खोलें और चलाएँ:
 
 termux-setup-storage
 pkg update -y
-pkg install unzip git -y
+pkg install git -y
 cd ~/storage/downloads
-unzip Royal_Treasure_ASMR_V2_Coding.zip -d RoyalTreasureV2
-cd RoyalTreasureV2
+# नीचे के folder name को अपने extract किए गए folder के अनुसार बदलें:
+cd royal-treasure-asmr-main
 
-3) Create an empty GitHub repository named RoyalTreasureASMR.
-4) Replace YOUR_USERNAME and run:
+3) GitHub पर एक नया खाली repository बनाएँ: RoyalTreasureASMR
+
+4) YOUR_USERNAME को अपने GitHub username से बदलकर चलाएँ:
 
 git init
 git branch -M main
 git add .
-git commit -m "Royal Treasure V2"
+git commit -m "Royal Treasure ASMR Android prototype"
 git remote add origin https://github.com/YOUR_USERNAME/RoyalTreasureASMR.git
 git push -u origin main
 
-5) GitHub mobile browser > repository > Actions > Build Royal Treasure V2 > Run workflow.
-6) After green success, download artifact Royal-Treasure-V2-APK-AAB.
+अगर GitHub login माँगे, तो password की जगह repository-scoped Personal Access Token का उपयोग करें।
+Token किसी को न भेजें और source code में न डालें।
 
-GitHub HTTPS requires a Personal Access Token instead of your account password. Use a repository-scoped token with Contents read/write permission. Never share it in chat or commit it into source code. The build runs on GitHub cloud; Termux uploads source and does not compile the Android app locally.
+5) GitHub ऐप/ब्राउज़र में repository खोलें → Actions → Build Android APK → Run workflow।
+6) Build हरा (success) होने पर workflow run खोलें → Artifacts → Royal-Treasure-ASMR-Debug-APK डाउनलोड करें।
+7) Artifact ZIP extract करें और app-debug.apk फोन में install करके जाँचें।
+
+जाँचें:
+- ऐप portrait mode में खुलता है।
+- नीचे की tray से crown, earrings, necklace और bangle को portrait पर drag करें।
+- सही जगह पर रखने पर counter बढ़ता है।
+- गलत जगह छोड़ने पर item tray में रहता है।
+- Hint, reference, reset, pause और sound toggle काम करते हैं।
+
+सीमाएँ:
+- अभी एक playable puzzle और पाँच jewellery pieces हैं।
+- Progress app बंद करने के बाद save नहीं होती।
+- असली ASMR music, ads, No Ads purchase और Play Store release signing अभी नहीं जुड़े हैं।
+- यह debug/test build है, Play Store पर सीधे publish करने योग्य release नहीं।
