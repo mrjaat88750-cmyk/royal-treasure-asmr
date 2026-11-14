@@ -1,0 +1,26 @@
+TERMUX MOBILE BUILD
+
+1) Download and extract this ZIP to Downloads.
+2) In Termux run:
+
+termux-setup-storage
+pkg update -y
+pkg install unzip git -y
+cd ~/storage/downloads
+unzip Royal_Treasure_ASMR_V2_Coding.zip -d RoyalTreasureV2
+cd RoyalTreasureV2
+
+3) Create an empty GitHub repository named RoyalTreasureASMR.
+4) Replace YOUR_USERNAME and run:
+
+git init
+git branch -M main
+git add .
+git commit -m "Royal Treasure V2"
+git remote add origin https://github.com/YOUR_USERNAME/RoyalTreasureASMR.git
+git push -u origin main
+
+5) GitHub mobile browser > repository > Actions > Build Royal Treasure V2 > Run workflow.
+6) After green success, download artifact Royal-Treasure-V2-APK-AAB.
+
+GitHub HTTPS requires a Personal Access Token instead of your account password. Use a repository-scoped token with Contents read/write permission. Never share it in chat or commit it into source code. The build runs on GitHub cloud; Termux uploads source and does not compile the Android app locally.
